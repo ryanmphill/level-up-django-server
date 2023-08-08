@@ -3,18 +3,22 @@
         "model": "levelupapi.game",
         "pk": 1,
         "fields": {
-            "name": "Catan",
+            "title": "Catan",
             "game_type": 1,
-            "creator": 1
+            "maker": 1,
+            "number_of_players": 4,
+            "skill_level": 4
         }
     },
     {
         "model": "levelupapi.game",
         "pk": 2,
         "fields": {
-            "name": "Legend of Zelda: Link's Awakening",
+            "title": "Legend of Zelda: Link's Awakening",
             "game_type": 2,
-            "creator": 1
+            "maker": 1,
+            "number_of_players": 2,
+            "skill_level": 6
         }
     }
 ]

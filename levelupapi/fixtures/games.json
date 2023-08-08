@@ -1,0 +1,20 @@
+[
+    {
+        "model": "levelupapi.game",
+        "pk": 1,
+        "fields": {
+            "name": "Catan",
+            "game_type": 1,
+            "creator": 1
+        }
+    },
+    {
+        "model": "levelupapi.game",
+        "pk": 2,
+        "fields": {
+            "name": "Legend of Zelda: Link's Awakening",
+            "game_type": 2,
+            "creator": 1
+        }
+    }
+]

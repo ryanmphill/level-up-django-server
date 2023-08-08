@@ -1,0 +1,24 @@
+[
+    {
+        "model": "levelupapi.event",
+        "pk": 1,
+        "fields": {
+            "title": "Catan Meetup",
+            "organizer": 1,
+            "game": 1,
+            "date": "2023-08-28",
+            "attendees": []
+        }
+    },
+    {
+        "model": "levelupapi.event",
+        "pk": 2,
+        "fields": {
+            "title": "Zelda Meetup",
+            "organizer": 1,
+            "game": 2,
+            "date": "2023-09-23",
+            "attendees": []
+        }
+    }
+]

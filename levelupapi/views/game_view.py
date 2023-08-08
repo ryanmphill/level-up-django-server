@@ -3,7 +3,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from levelupapi.models import Game
+from levelupapi.models import Game, GameType, Gamer
 
 
 class GameView(ViewSet):
@@ -30,9 +30,28 @@ class GameView(ViewSet):
         serializer = GameSerializer(games, many=True)
         return Response(serializer.data)
 
+class GameTypeOfGameSerializer(serializers.ModelSerializer):
+    """JSON serializer for gametype
+    """
+    class Meta:
+        model = GameType
+        fields = ('id', 'label')
+
+class GameCreatorSerializer(serializers.ModelSerializer):
+    """JSON serializer for gamer
+    """
+    class Meta:
+        model = Gamer
+        fields = ('id', 'user', 'bio')
+
 class GameSerializer(serializers.ModelSerializer):
     """JSON serializer for games
     """
+
+    game_type = GameTypeOfGameSerializer(many=False)
+    creator = GameCreatorSerializer(many=False)
+
     class Meta:
         model = Game
         fields = ('id', 'name', 'game_type', 'creator')
+        depth = 1

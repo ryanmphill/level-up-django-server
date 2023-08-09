@@ -67,7 +67,7 @@ class GameView(ViewSet):
 
         creator = Gamer.objects.get(pk=request.data["creator"])
         game.creator = creator
-        
+
         game.number_of_players = request.data["number_of_players"]
         game.skill_level = request.data["skill_level"]
 
@@ -75,6 +75,17 @@ class GameView(ViewSet):
         game.save()
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
+    
+    def destroy(self, request, pk):
+        """Handle DELETE requests
+
+        Returns:
+            Response -- Empty body with 204 status code
+        """
+        game = Game.objects.get(pk=pk)
+        game.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+        
 
 
 class GameTypeOfGameSerializer(serializers.ModelSerializer):

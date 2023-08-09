@@ -29,6 +29,26 @@ class GameView(ViewSet):
         games = Game.objects.all()
         serializer = GameSerializer(games, many=True)
         return Response(serializer.data)
+    
+    def create(self, request):
+        """Handle POST operations
+
+        Returns
+            Response -- JSON serialized game instance
+        """
+        creator = Gamer.objects.get(user=request.auth.user)
+        game_type = GameType.objects.get(pk=request.data["game_type"])
+
+        game = Game.objects.create(
+        title=request.data["title"],
+        game_type=game_type,
+        maker=request.data["maker"],
+        creator=creator,
+        number_of_players=request.data["number_of_players"],
+        skill_level=request.data["skill_level"]
+        )
+        serializer = GameSerializer(game)
+        return Response(serializer.data)
 
 class GameTypeOfGameSerializer(serializers.ModelSerializer):
     """JSON serializer for gametype
@@ -49,9 +69,9 @@ class GameSerializer(serializers.ModelSerializer):
     """
 
     game_type = GameTypeOfGameSerializer(many=False)
-    maker = GameCreatorSerializer(many=False)
+    creator = GameCreatorSerializer(many=False)
 
     class Meta:
         model = Game
-        fields = ('id', 'title', 'game_type', 'maker', 'number_of_players', 'skill_level')
+        fields = ('id', 'title', 'game_type', 'maker', 'creator', 'number_of_players', 'skill_level')
         depth = 1

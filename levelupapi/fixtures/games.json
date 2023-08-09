@@ -5,7 +5,8 @@
         "fields": {
             "title": "Catan",
             "game_type": 1,
-            "maker": 1,
+            "maker": "Asmodee",
+            "creator": 1,
             "number_of_players": 4,
             "skill_level": 4
         }
@@ -16,7 +17,8 @@
         "fields": {
             "title": "Legend of Zelda: Link's Awakening",
             "game_type": 2,
-            "maker": 1,
+            "maker": "Nintendo",
+            "creator": 1,
             "number_of_players": 2,
             "skill_level": 6
         }

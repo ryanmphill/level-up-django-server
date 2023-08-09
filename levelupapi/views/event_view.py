@@ -41,14 +41,14 @@ class GameOfEventSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Game
-        fields = ('id', 'name', 'game_type', 'creator')
+        fields = ('id', 'title', 'game_type', 'maker')
 
 class EventOrganizerSerializer(serializers.ModelSerializer):
     """JSON serializer for gamer
     """
     class Meta:
         model = Gamer
-        fields = ('id', 'user', 'bio')
+        fields = ('id', 'user', 'bio', 'full_name')
 
 class EventSerializer(serializers.ModelSerializer):
     """JSON serializer for games

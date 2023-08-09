@@ -42,7 +42,7 @@ class GameCreatorSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Gamer
-        fields = ('id', 'user', 'bio')
+        fields = ('id', 'user', 'bio', 'full_name', 'username')
 
 class GameSerializer(serializers.ModelSerializer):
     """JSON serializer for games

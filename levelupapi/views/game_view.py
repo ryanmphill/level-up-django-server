@@ -48,7 +48,7 @@ class GameView(ViewSet):
         skill_level=request.data["skill_level"]
         )
         serializer = GameSerializer(game)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 class GameTypeOfGameSerializer(serializers.ModelSerializer):
     """JSON serializer for gametype
